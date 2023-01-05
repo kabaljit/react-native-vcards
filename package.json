@@ -7,7 +7,7 @@
     "moment": "~2.13.0"
   },
   "peerDependencies": {
-    "react-native-fs": "2.x"
+    "expo-file-system": "15.x"
   },
   "devDependencies": {
     "mocha": "~2.5.3"

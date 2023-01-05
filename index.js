@@ -10,7 +10,7 @@
  */
 var vCard = (function () {
 
-  var fs = require('react-native-fs');
+  var fs = require('expo-file-system');
 
     /**
      * Get photo object for storing photos in vCards
@@ -37,7 +37,7 @@ var vCard = (function () {
              * @param  {string} filename
              */
             embedFromFile: function(fileLocation) {
-              var imgData = fs.readFile(fileLocation);
+              var imgData = fs.readAsStringAsync(fileLocation);
               this.url = imgData.toString('base64');
               this.base64 = true;
             }
@@ -314,7 +314,7 @@ var vCard = (function () {
             var vCardFormatter = require('./lib/vCardFormatter');
             var contents = vCardFormatter.getFormattedString(this);
 
-            return fs.writeFile(filename, contents, 'utf8');
+            return fs.writeAsStringAsync(filename, contents, 'utf8');
         }
     };
 });
